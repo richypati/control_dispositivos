@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Nov 29, 2015 10:09:13 AM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="co.edu.udea.controldispositivos.dominio.Dispositivo" table="dispositivo" catalog="control_dispositivos">
+        <id name="idDispositivo" type="int">
+            <column name="ID_DISPOSITIVO" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="categoriaDispositivo" class="co.edu.udea.controldispositivos.dominio.CategoriaDispositivo" fetch="select">
+            <column name="CATEGORIA_DISPOSITIVO" not-null="true" />
+        </many-to-one>
+        <property name="nombreDispositivo" type="string">
+            <column name="NOMBRE_DISPOSITIVO" length="45" not-null="true" />
+        </property>
+        <property name="estado" type="string">
+            <column name="ESTADO" length="45" />
+        </property>
+        <property name="urlImagen" type="string">
+            <column name="URL_IMAGEN" length="45" />
+        </property>
+        <set name="dispositivoXUsuarios" table="dispositivo_x_usuario" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_DISPOSITIVO" not-null="true" />
+            </key>
+            <one-to-many class="co.edu.udea.controldispositivos.dominio.DispositivoXUsuario" />
+        </set>
+    </class>
+</hibernate-mapping>

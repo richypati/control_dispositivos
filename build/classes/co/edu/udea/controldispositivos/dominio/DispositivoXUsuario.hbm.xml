@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Nov 29, 2015 10:09:13 AM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="co.edu.udea.controldispositivos.dominio.DispositivoXUsuario" table="dispositivo_x_usuario" catalog="control_dispositivos">
+        <composite-id name="id" class="co.edu.udea.controldispositivos.dominio.DispositivoXUsuarioId">
+            <key-property name="usuarioEmail" type="string">
+                <column name="USUARIO_EMAIL" />
+            </key-property>
+            <key-property name="idDispositivo" type="int">
+                <column name="ID_DISPOSITIVO" />
+            </key-property>
+            <key-property name="idAccesso" type="string">
+                <column name="ID_ACCESSO" length="45" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="usuario" class="co.edu.udea.controldispositivos.dominio.Usuario" update="false" insert="false" fetch="select">
+            <column name="USUARIO_EMAIL" not-null="true" />
+        </many-to-one>
+        <many-to-one name="dispositivo" class="co.edu.udea.controldispositivos.dominio.Dispositivo" update="false" insert="false" fetch="select">
+            <column name="ID_DISPOSITIVO" not-null="true" />
+        </many-to-one>
+    </class>
+</hibernate-mapping>
