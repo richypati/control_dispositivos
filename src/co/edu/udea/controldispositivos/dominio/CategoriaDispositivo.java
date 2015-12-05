@@ -6,31 +6,27 @@ import java.util.Set;
 public class CategoriaDispositivo implements java.io.Serializable {
 
 	private static final long serialVersionUID = 1L;
-	private int idCategoriaDispositivo;
+	private Integer idCategoriaDispositivo;
 	private String nombreCategoria;
 	private Set<Dispositivo> dispositivos = new HashSet<Dispositivo>(0);
 
 	public CategoriaDispositivo() {
 	}
 
-	public CategoriaDispositivo(int idCategoriaDispositivo,
-			String nombreCategoria) {
-		this.idCategoriaDispositivo = idCategoriaDispositivo;
+	public CategoriaDispositivo(String nombreCategoria) {
 		this.nombreCategoria = nombreCategoria;
 	}
 
-	public CategoriaDispositivo(int idCategoriaDispositivo,
-			String nombreCategoria, Set<Dispositivo> dispositivos) {
-		this.idCategoriaDispositivo = idCategoriaDispositivo;
+	public CategoriaDispositivo(String nombreCategoria, Set<Dispositivo> dispositivos) {
 		this.nombreCategoria = nombreCategoria;
 		this.dispositivos = dispositivos;
 	}
 
-	public int getIdCategoriaDispositivo() {
+	public Integer getIdCategoriaDispositivo() {
 		return this.idCategoriaDispositivo;
 	}
 
-	public void setIdCategoriaDispositivo(int idCategoriaDispositivo) {
+	public void setIdCategoriaDispositivo(Integer idCategoriaDispositivo) {
 		this.idCategoriaDispositivo = idCategoriaDispositivo;
 	}
 

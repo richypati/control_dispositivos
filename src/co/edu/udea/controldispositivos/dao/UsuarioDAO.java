@@ -6,6 +6,7 @@ import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.exception.ConstraintViolationException;
 
+import co.edu.udea.controldispositivos.daoi.IUsuarioDAO;
 import co.edu.udea.controldispositivos.dominio.Usuario;
 
 public class UsuarioDAO implements IUsuarioDAO{
@@ -20,7 +21,7 @@ public class UsuarioDAO implements IUsuarioDAO{
 			session = sessionFactory.openSession();
 			usuario = (Usuario) session.get(Usuario.class, email);
 		}catch(Exception e){
-			e.printStackTrace();
+			throw e;
 		} finally {
 			if (null != session){
 				if (session.isOpen()){
@@ -40,9 +41,6 @@ public class UsuarioDAO implements IUsuarioDAO{
 			session.persist(usuario);
 			transaction.commit();
 		}catch(ConstraintViolationException e){
-			if (null != transaction){
-				transaction.rollback();
-			}
 			throw e;
 		}finally {
 			if (null != session){

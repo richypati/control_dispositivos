@@ -6,7 +6,7 @@ import java.util.Set;
 public class Dispositivo implements java.io.Serializable {
 
 	private static final long serialVersionUID = 1L;
-	private int idDispositivo;
+	private Integer idDispositivo;
 	private CategoriaDispositivo categoriaDispositivo;
 	private String nombreDispositivo;
 	private String estado;
@@ -16,18 +16,15 @@ public class Dispositivo implements java.io.Serializable {
 	public Dispositivo() {
 	}
 
-	public Dispositivo(int idDispositivo,
-			CategoriaDispositivo categoriaDispositivo, String nombreDispositivo) {
-		this.idDispositivo = idDispositivo;
+	public Dispositivo(CategoriaDispositivo categoriaDispositivo,
+			String nombreDispositivo) {
 		this.categoriaDispositivo = categoriaDispositivo;
 		this.nombreDispositivo = nombreDispositivo;
 	}
 
-	public Dispositivo(int idDispositivo,
-			CategoriaDispositivo categoriaDispositivo,
+	public Dispositivo(CategoriaDispositivo categoriaDispositivo,
 			String nombreDispositivo, String estado, String urlImagen,
 			Set<DispositivoXUsuario> dispositivoXUsuarios) {
-		this.idDispositivo = idDispositivo;
 		this.categoriaDispositivo = categoriaDispositivo;
 		this.nombreDispositivo = nombreDispositivo;
 		this.estado = estado;
@@ -35,11 +32,11 @@ public class Dispositivo implements java.io.Serializable {
 		this.dispositivoXUsuarios = dispositivoXUsuarios;
 	}
 
-	public int getIdDispositivo() {
+	public Integer getIdDispositivo() {
 		return this.idDispositivo;
 	}
 
-	public void setIdDispositivo(int idDispositivo) {
+	public void setIdDispositivo(Integer idDispositivo) {
 		this.idDispositivo = idDispositivo;
 	}
 

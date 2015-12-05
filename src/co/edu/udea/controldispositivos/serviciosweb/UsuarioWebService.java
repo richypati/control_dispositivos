@@ -12,8 +12,8 @@ import javax.ws.rs.core.Response.Status;
 
 import org.hibernate.exception.ConstraintViolationException;
 
-import co.edu.udea.controldispositivos.logica.IUsuarioService;
 import co.edu.udea.controldispositivos.logica.UsuarioService;
+import co.edu.udea.controldispositivos.logicai.IUsuarioService;
 
 @Path("/usuario")
 public class UsuarioWebService {
@@ -27,15 +27,20 @@ public class UsuarioWebService {
 	public Response esUsuarioValido(@QueryParam("email")String email,@QueryParam("password") String password){
 		
 		Response respuesta;
-		usuarioService = new UsuarioService();
-		try{
-			if (usuarioService.esUsuarioValido(email, password)){
-				respuesta = Response.status(Status.ACCEPTED).build();
-			}else{
-				respuesta = Response.status(Status.UNAUTHORIZED).build();
+		
+		if ("".equals(email) || "".equals(password)){
+			respuesta = Response.status(Status.UNAUTHORIZED).build();
+		}else{
+			usuarioService = new UsuarioService();
+			try{
+				if (usuarioService.esUsuarioValido(email, password)){
+					respuesta = Response.status(Status.ACCEPTED).build();
+				}else{
+					respuesta = Response.status(Status.UNAUTHORIZED).build();
+				}
+			}catch(Exception e){
+				respuesta = Response.status(Status.INTERNAL_SERVER_ERROR).build();
 			}
-		}catch(Exception e){
-			respuesta = Response.status(Status.INTERNAL_SERVER_ERROR).build();
 		}
 		return respuesta;
 	}

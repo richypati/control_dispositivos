@@ -4,9 +4,10 @@ import org.hibernate.exception.ConstraintViolationException;
 
 import com.google.gson.Gson;
 
-import co.edu.udea.controldispositivos.dao.IUsuarioDAO;
 import co.edu.udea.controldispositivos.dao.UsuarioDAO;
+import co.edu.udea.controldispositivos.daoi.IUsuarioDAO;
 import co.edu.udea.controldispositivos.dominio.Usuario;
+import co.edu.udea.controldispositivos.logicai.IUsuarioService;
 
 public class UsuarioService implements IUsuarioService{
 

@@ -2,8 +2,7 @@
     <wb-module deploy-name="control_dispositivos">
         <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
-        <wb-resource deploy-path="/WEB-INF/classes" source-path="/test_unitarios"/>
-        <wb-resource deploy-path="/WEB-INF/classes" source-path="/test_integracion"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/test"/>
         <property name="context-root" value="control_dispositivos"/>
         <property name="java-output-path" value="/control_dispositivos/build/classes"/>
     </wb-module>

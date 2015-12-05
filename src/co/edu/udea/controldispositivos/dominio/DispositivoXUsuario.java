@@ -3,26 +3,27 @@ package co.edu.udea.controldispositivos.dominio;
 public class DispositivoXUsuario implements java.io.Serializable {
 
 	private static final long serialVersionUID = 1L;
-	private DispositivoXUsuarioId id;
+	private Integer idDispositivoXUsuario;
 	private Usuario usuario;
 	private Dispositivo dispositivo;
+	private String idAccesso;
 
 	public DispositivoXUsuario() {
 	}
 
-	public DispositivoXUsuario(DispositivoXUsuarioId id, Usuario usuario,
-			Dispositivo dispositivo) {
-		this.id = id;
+	public DispositivoXUsuario(Usuario usuario, Dispositivo dispositivo,
+			String idAccesso) {
 		this.usuario = usuario;
 		this.dispositivo = dispositivo;
+		this.idAccesso = idAccesso;
 	}
 
-	public DispositivoXUsuarioId getId() {
-		return this.id;
+	public Integer getIdDispositivoXUsuario() {
+		return this.idDispositivoXUsuario;
 	}
 
-	public void setId(DispositivoXUsuarioId id) {
-		this.id = id;
+	public void setIdDispositivoXUsuario(Integer idDispositivoXUsuario) {
+		this.idDispositivoXUsuario = idDispositivoXUsuario;
 	}
 
 	public Usuario getUsuario() {
@@ -39,6 +40,14 @@ public class DispositivoXUsuario implements java.io.Serializable {
 
 	public void setDispositivo(Dispositivo dispositivo) {
 		this.dispositivo = dispositivo;
+	}
+
+	public String getIdAccesso() {
+		return this.idAccesso;
+	}
+
+	public void setIdAccesso(String idAccesso) {
+		this.idAccesso = idAccesso;
 	}
 
 }
