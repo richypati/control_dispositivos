@@ -1,0 +1,59 @@
+<meta charset="UTF-8">
+<script src="../resources/js/angular.js"></script>
+<script src="../resources/js/angular-route.js"></script>
+<script src="../resources/js/angular-cookies.js"></script>
+<script src="../resources/js/modules/myModule.js"></script>
+<script src="../resources/js/ngDialog.js"></script>
+<title>Control de Dispositivos</title>
+<div ng-app="cdApp" ng-controller="ctrlrLogin">
+	<div class="row">
+		<div class="col-md-4"></div>
+		<div class="col-md-4">
+			<div class="panel panel panel-primary" class="row grid7">
+				<div class="panel-heading" class="col-md-1">
+					<b>LOGIN</b>
+				</div>
+				<div class="panel-body" align="center">
+					<img src="resources/images/iot.jpg" width="50%" height="40%">
+					<table cellspacing="5px" width="80%">
+						<tr>
+							<td>
+								<span class="label label-danger">{{error}}</span>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<label>Email:</label>
+							</td>
+							<td>
+								<input ng-model="email" type="text" class="form-control"
+									placeholder="usuario@ejemplo.com"
+									aria-describedby="basic-addon1">
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<label>Contrasena:</label>
+							</td>
+							<td>
+								<input ng-model="password" type="password" class="form-control"
+									aria-describedby="basic-addon1" id="Contrasena">
+							</td>
+						</tr>
+						<tr>
+							<td align="Right">
+								<button ng-click="login()" type="button" class="btn btn-success"
+									aria-label="Left Align">Ingresar</button>
+							</td>
+							<td align="Center">
+								<button ng-click="registrar()" type="button"
+									class="btn btn btn-danger" aria-label="Center Align">Registrar</button>
+							</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-4"></div>
+	</div>
+</div>

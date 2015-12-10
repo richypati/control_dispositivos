@@ -7,6 +7,7 @@ import com.google.gson.Gson;
 import co.edu.udea.controldispositivos.dao.UsuarioDAO;
 import co.edu.udea.controldispositivos.daoi.IUsuarioDAO;
 import co.edu.udea.controldispositivos.dominio.Usuario;
+import co.edu.udea.controldispositivos.dto.UsuarioDTO;
 import co.edu.udea.controldispositivos.logicai.IUsuarioService;
 
 public class UsuarioService implements IUsuarioService{
@@ -32,10 +33,9 @@ public class UsuarioService implements IUsuarioService{
 	}
 
 	@Override
-	public void registrarUsuario(String usuarioJSON) throws ConstraintViolationException{
-		
-		gson = new Gson();
-		Usuario usuario = gson.fromJson(usuarioJSON, Usuario.class);
+	public void registrarUsuario(Usuario usuario) throws ConstraintViolationException{
+
+		usuarioDAO = new UsuarioDAO();
 		usuarioDAO.crearUsuario(usuario);
 	}
 
